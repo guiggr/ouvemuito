@@ -1,6 +1,9 @@
-from django.contrib import path
+from django.urls import path
 from . import views
 
+app_name = 'noticias'
+
 urlpatterns = [
-    path('noticias/',views.noticias, name='noticias'),
+    path('', views.lista_noticias, name='lista'),
+    path('<int:id>/', views.detalhe_noticia, name='detalhe'),
 ]

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/banner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/novidades.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Ouve Muito</title>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="{% static 'img/header/logo.png' %}" alt="Logo Ouve Muito">
+    </div>
+
+    <nav>
+        <div class="pesquisa">
+            <input type="text" placeholder="Pesquisar">
+            <img src="{% static 'img/header/lupa.png' %}" alt="Pesquisar">
+        </div>
+    </nav>
+</header>
+
+<section class="banner">
+    <h1>Pra quem <span class="ouvemuito">ouve muito</span> e vive o rap de verdade.</h1>
+    <img src="{% static 'img/imgBanner.png' %}" alt="Banner Ouve Muito">
+</section>
+
+
+<section class="noticias">
+    <h2>Últimas Notícias</h2>
+
+    <div class="lista-noticias">
+        {% for noticia in noticias %}
+            <article class="noticia">
+                {% if noticia.imagem %}
+                    <img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}">
+                {% endif %}
+
+                <h3>{{ noticia.titulo }}</h3>
+                <p class="data">{{ noticia.data_publicacao|date:"d/m/Y" }}</p>
+                <p>{{ noticia.resumo }}</p>
+
+                <a href="#" class="btn">Ler mais</a>
+            </article>
+        {% empty %}
+            <p>Nenhuma notícia publicada.</p>
+        {% endfor %}
+    </div>
+</section>
+
+</body>
+</html>

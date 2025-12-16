@@ -1,0 +1,18 @@
+.banner{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.banner h1{
+    width: 40%;
+    padding-left: 5%;
+    font-size: 5rem;
+    align-self: center;
+    font-family:"Instrument Sans", sans-serif;
+}
+.banner .ouvemuito{
+    color: #2DA43E;
+}
+.banner img{
+    width: 50%;
+}
