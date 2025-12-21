@@ -5,5 +5,5 @@ app_name = 'noticias'
 
 
 urlpatterns = [
-    path('<int:ano>/<int:mes>/<int:dia>/', views.noticias_por_dia, name='noticias_por_dia'),
+    path('<int:ano>/<int:mes>/<int:dia>/', views.noticias_do_dia, name='noticias_do_dia'),
 ]

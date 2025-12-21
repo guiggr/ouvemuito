@@ -3,7 +3,7 @@ from .models import Noticia
 
 @admin.register(Noticia)
 class NoticiaAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'data_publicacao', 'publicada')
+    list_display = ('data_publicacao', 'publicada')
     list_filter = ('publicada', 'data_publicacao')
-    search_fields = ('titulo', 'resumo')
+    search_fields = ('conteudo',)
     list_editable = ('publicada',)

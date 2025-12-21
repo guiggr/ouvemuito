@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Notícias de {{ data|date:"d/m/Y" }}</title>
-
-    <link rel="stylesheet" href="{% static 'css/noticias.css' %}">
+    <link rel="stylesheet" href="{% static 'noticias/css/style.css' %}">
 </head>
 <body>
 
@@ -19,10 +18,10 @@
         <article class="noticia">
             
             {% if noticia.imagem %}
-                <img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}">
+                <img src="{{ noticia.imagem.url }}" alt="Notícia de {{ noticia.data_publicacao|date:'d/m/Y' }}">
             {% endif %}
 
-            <h2>{{ noticia.titulo }}</h2>
+            <h2>{{ noticia.data_publicacao|date:"d/m/Y" }}</h2>
 
             <p class="resumo">
                 {{ noticia.resumo }}
