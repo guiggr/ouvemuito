@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+
 
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200)

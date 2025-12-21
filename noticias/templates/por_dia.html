@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Notícias de {{ data|date:"d/m/Y" }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/noticias.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>Notícias do dia {{ data|date:"d/m/Y" }}</h1>
+</header>
+
+<main class="noticias-dia">
+
+    {% for noticia in noticias %}
+        <article class="noticia">
+            
+            {% if noticia.imagem %}
+                <img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}">
+            {% endif %}
+
+            <h2>{{ noticia.titulo }}</h2>
+
+            <p class="resumo">
+                {{ noticia.resumo }}
+            </p>
+
+            <a href="{% url 'detalhe_noticia' noticia.id %}">
+                Ler mais
+            </a>
+
+        </article>
+    {% empty %}
+        <p>Nenhuma notícia publicada hoje.</p>
+    {% endfor %}
+
+</main>
+
+</body>
+</html>

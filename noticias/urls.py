@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'noticias'
 
+
 urlpatterns = [
-    path('', views.lista_noticias, name='lista'),
-    path('<int:id>/', views.detalhe_noticia, name='detalhe'),
+    path('<int:ano>/<int:mes>/<int:dia>/', views.noticias_por_dia, name='noticias_por_dia'),
 ]
